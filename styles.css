@@ -69,3 +69,8 @@ main {
 .running {
     transform: scale(0.95);
 }
+
+#timer__toggle.running {
+    background-color: #dedede;
+    color: #ff3030;
+}
