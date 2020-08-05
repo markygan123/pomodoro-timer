@@ -65,3 +65,7 @@ main {
 #timer__toggle:hover {
     cursor: pointer;
 }
+
+.running {
+    transform: scale(0.95);
+}

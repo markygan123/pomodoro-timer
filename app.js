@@ -32,6 +32,7 @@ function startTimer() {
 
 function main() {
     timerToggleEl.addEventListener("click", function () {
+        timerToggleEl.classList.toggle("running");
         if (timer !== null) {
             clearInterval(timer);
             timer = null;
