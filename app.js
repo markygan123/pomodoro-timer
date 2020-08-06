@@ -1,15 +1,18 @@
 const minutesEl = document.querySelector(".timer__minutes");
 const secondsEl = document.querySelector(".timer__seconds");
 const timerToggleEl = document.getElementById("timer__toggle");
-const startingMinutes = 25;
+const startingMinutes = 1;
 let countDownTime = startingMinutes * 60;
 let timer = null;
+let sound = new Audio("audio/bell.mp3");
 
 
 minutesEl.textContent = startingMinutes < 10 ? "0" + startingMinutes : startingMinutes;
 secondsEl.textContent = "00";
 
-
+function ringBell() {
+    sound.play();
+}
 
 function startTimer() {
     let minutes = Math.floor(countDownTime / 60);
@@ -19,9 +22,10 @@ function startTimer() {
     minutes = minutes < 10 ? "0" + minutes : minutes;
 
     if (minutes === "00" && seconds === "00") {
+        ringBell();
         setTimeout(() => {
             window.location.reload(); 
-        }, 1000);
+        }, 3000);
     }
 
     minutesEl.textContent = minutes;
