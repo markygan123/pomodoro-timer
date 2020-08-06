@@ -5,13 +5,23 @@ const startingMinutes = 1;
 let countDownTime = startingMinutes * 60;
 let timer = null;
 let timeOverSound = new Audio("audio/bell.mp3");
+let backgroundMusic = new Audio("audio/background-music.mp3");
 
 
 minutesEl.textContent = startingMinutes < 10 ? "0" + startingMinutes : startingMinutes;
 secondsEl.textContent = "00";
 
 function ringBell() {
+    pauseBackgroundMusic();
     timeOverSound.play();
+}
+
+function playBackgroundMusic() {
+    backgroundMusic.play();
+}
+
+function pauseBackgroundMusic() {
+    backgroundMusic.pause();
 }
 
 function startTimer() {
@@ -39,9 +49,11 @@ function main() {
         timerToggleEl.classList.toggle("running");
         if (timer !== null) {
             clearInterval(timer);
+            pauseBackgroundMusic();
             timer = null;
         } else {
             timer = setInterval(startTimer, 1000);
+            playBackgroundMusic();
         }
 
         timerToggleEl.innerHTML === "start" ?
