@@ -1,7 +1,7 @@
 const minutesEl = document.querySelector(".timer__minutes");
 const secondsEl = document.querySelector(".timer__seconds");
 const timerToggleEl = document.getElementById("timer__toggle");
-const startingMinutes = 1;
+const startingMinutes = 25;
 let countDownTime = startingMinutes * 60;
 let timer = null;
 let timeOverSound = new Audio("audio/bell.mp3");
@@ -18,6 +18,7 @@ function ringBell() {
 
 function playBackgroundMusic() {
     backgroundMusic.play();
+    backgroundMusic.loop = true;
 }
 
 function pauseBackgroundMusic() {
