@@ -4,14 +4,14 @@ const timerToggleEl = document.getElementById("timer__toggle");
 const startingMinutes = 1;
 let countDownTime = startingMinutes * 60;
 let timer = null;
-let sound = new Audio("audio/bell.mp3");
+let timeOverSound = new Audio("audio/bell.mp3");
 
 
 minutesEl.textContent = startingMinutes < 10 ? "0" + startingMinutes : startingMinutes;
 secondsEl.textContent = "00";
 
 function ringBell() {
-    sound.play();
+    timeOverSound.play();
 }
 
 function startTimer() {
