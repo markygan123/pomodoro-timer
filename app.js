@@ -44,10 +44,16 @@ function startTimer() {
     minutes = minutes < 10 ? "0" + minutes : minutes;
 
     if (minutes === "00" && seconds === "00") {
-        ringBell();
-        setTimeout(() => {
-            window.location.reload();
-        }, 5000);
+        if (!backgroundMusic.muted) {
+            ringBell();
+            setTimeout(() => {
+                window.location.reload();
+            }, 4000);
+        } else {
+            setTimeout(() => {
+                window.location.reload();
+            }, 2000);
+        }
     }
 
     minutesEl.textContent = minutes;
