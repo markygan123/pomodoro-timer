@@ -4,7 +4,7 @@ const audioOnEl = document.querySelector(".fas.fa-volume-up");
 const audioOffEl = document.querySelector(".fas.fa-volume-mute");
 const timerToggleEl = document.getElementById("timer__toggle");
 
-const startingMinutes = 25;
+const startingMinutes = 1;
 let countDownTime = startingMinutes * 60;
 let timer = null;
 let timeOverSound = new Audio("audio/bell.mp3");
@@ -77,13 +77,13 @@ function main() {
 
     audioOnEl.addEventListener("click", function (e) {
         this.classList.toggle("play");
-        muteBackgroundMusic();
+        unmuteBackgroundMusic();
         audioOffEl.classList.toggle("play");
     });
 
     audioOffEl.addEventListener("click", function (e) {
         this.classList.toggle("play");
-        unmuteBackgroundMusic();
+        muteBackgroundMusic();
         audioOnEl.classList.toggle("play");
     });
 }
