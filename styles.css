@@ -90,9 +90,9 @@ main {
     transform: scale(0.95);
 }
 
-/* .fa-volume-up.play {
+.fa-volume-up.play {
     display: none;
-} */
+}
 
 .fa-volume-mute.play {
     display: block;

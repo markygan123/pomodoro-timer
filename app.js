@@ -1,7 +1,7 @@
 const minutesEl = document.querySelector(".timer__minutes");
 const secondsEl = document.querySelector(".timer__seconds");
 const audioOnEl = document.querySelector(".fas.fa-volume-up");
-const audioOffEl = document.querySelector(".fas.fa-volume-down");
+const audioOffEl = document.querySelector(".fas.fa-volume-mute");
 const timerToggleEl = document.getElementById("timer__toggle");
 
 const startingMinutes = 25;
@@ -49,7 +49,7 @@ function startTimer() {
 function main() {
     minutesEl.textContent = startingMinutes < 10 ? "0" + startingMinutes : startingMinutes;
     secondsEl.textContent = "00";
-    
+
     timerToggleEl.addEventListener("click", function () {
 
         timerToggleEl.classList.toggle("running");
@@ -67,10 +67,15 @@ function main() {
         timerToggleEl.innerHTML = "start";
     });
 
-    audioOnEl.addEventListener("click", function () {
-        audioOnEl.classList.toggle("play");
+    audioOnEl.addEventListener("click", function (e) {
+        this.classList.toggle("play");
         audioOffEl.classList.toggle("play");
-    })
+    });
+
+    audioOffEl.addEventListener("click", function (e) {
+        this.classList.toggle("play");
+        audioOnEl.classList.toggle("play");
+    });
 }
 
 main();
