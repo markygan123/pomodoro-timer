@@ -1,6 +1,9 @@
 const minutesEl = document.querySelector(".timer__minutes");
 const secondsEl = document.querySelector(".timer__seconds");
+const audioOnEl = document.querySelector(".fas.fa-volume-up");
+const audioOffEl = document.querySelector(".fas.fa-volume-down");
 const timerToggleEl = document.getElementById("timer__toggle");
+
 const startingMinutes = 25;
 let countDownTime = startingMinutes * 60;
 let timer = null;
@@ -8,8 +11,6 @@ let timeOverSound = new Audio("audio/bell.mp3");
 let backgroundMusic = new Audio("audio/background-music.mp3");
 
 
-minutesEl.textContent = startingMinutes < 10 ? "0" + startingMinutes : startingMinutes;
-secondsEl.textContent = "00";
 
 function ringBell() {
     pauseBackgroundMusic();
@@ -46,7 +47,11 @@ function startTimer() {
 }
 
 function main() {
+    minutesEl.textContent = startingMinutes < 10 ? "0" + startingMinutes : startingMinutes;
+    secondsEl.textContent = "00";
+    
     timerToggleEl.addEventListener("click", function () {
+
         timerToggleEl.classList.toggle("running");
         if (timer !== null) {
             clearInterval(timer);
@@ -61,6 +66,11 @@ function main() {
         timerToggleEl.innerHTML = "stop":
         timerToggleEl.innerHTML = "start";
     });
+
+    audioOnEl.addEventListener("click", function () {
+        audioOnEl.classList.toggle("play");
+        audioOffEl.classList.toggle("play");
+    })
 }
 
 main();
