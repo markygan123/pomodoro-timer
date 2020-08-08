@@ -26,6 +26,14 @@ function pauseBackgroundMusic() {
     backgroundMusic.pause();
 }
 
+function muteBackgroundMusic() {
+    backgroundMusic.muted = true;
+}
+
+function unmuteBackgroundMusic() {
+    backgroundMusic.muted = false;
+}
+
 function startTimer() {
     let minutes = Math.floor(countDownTime / 60);
     let seconds = countDownTime % 60;
@@ -69,11 +77,13 @@ function main() {
 
     audioOnEl.addEventListener("click", function (e) {
         this.classList.toggle("play");
+        muteBackgroundMusic();
         audioOffEl.classList.toggle("play");
     });
 
     audioOffEl.addEventListener("click", function (e) {
         this.classList.toggle("play");
+        unmuteBackgroundMusic();
         audioOnEl.classList.toggle("play");
     });
 }

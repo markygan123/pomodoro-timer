@@ -28,7 +28,7 @@ body {
     font-size: 3rem;
 }
 
-.fa-volume-mute {
+.fa-volume-up {
     display: none;
 }
 
@@ -91,11 +91,11 @@ main {
 }
 
 .fa-volume-up.play {
-    display: none;
+    display: block;
 }
 
 .fa-volume-mute.play {
-    display: block;
+    display: none;
 }
 
 #timer__toggle.running {
