@@ -4,7 +4,7 @@ const audioOnEl = document.querySelector(".fas.fa-volume-up");
 const audioOffEl = document.querySelector(".fas.fa-volume-mute");
 const timerToggleEl = document.getElementById("timer__toggle");
 
-const startingMinutes = 1;
+const startingMinutes = 25;
 let countDownTime = startingMinutes * 60;
 let timer = null;
 let timeOverSound = new Audio("audio/bell.mp3");
@@ -28,10 +28,12 @@ function pauseBackgroundMusic() {
 
 function muteBackgroundMusic() {
     backgroundMusic.muted = true;
+    timeOverSound.muted = true;
 }
 
 function unmuteBackgroundMusic() {
     backgroundMusic.muted = false;
+    timeOverSound.muted = false;
 }
 
 function startTimer() {
@@ -44,8 +46,8 @@ function startTimer() {
     if (minutes === "00" && seconds === "00") {
         ringBell();
         setTimeout(() => {
-            window.location.reload(); 
-        }, 3000);
+            window.location.reload();
+        }, 5000);
     }
 
     minutesEl.textContent = minutes;
@@ -75,17 +77,18 @@ function main() {
         timerToggleEl.innerHTML = "start";
     });
 
+    audioOffEl.addEventListener("click", function (e) {
+        this.classList.toggle("play");
+        audioOnEl.classList.toggle("play");
+        muteBackgroundMusic();
+    });
+
     audioOnEl.addEventListener("click", function (e) {
         this.classList.toggle("play");
         unmuteBackgroundMusic();
         audioOffEl.classList.toggle("play");
     });
 
-    audioOffEl.addEventListener("click", function (e) {
-        this.classList.toggle("play");
-        muteBackgroundMusic();
-        audioOnEl.classList.toggle("play");
-    });
 }
 
 main();
