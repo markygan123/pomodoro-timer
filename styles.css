@@ -55,6 +55,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    letter-spacing: 0.03em;
 }
 
 .timer__title {
@@ -80,6 +81,7 @@ main {
     background-color: #ffffff;
     color: #ff4545;
     font-weight: bold;
+    letter-spacing: 0.02em;
 }
 
 #timer__toggle:hover {
