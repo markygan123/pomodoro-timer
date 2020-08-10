@@ -2,6 +2,7 @@ const minutesEl = document.querySelector(".timer__minutes");
 const secondsEl = document.querySelector(".timer__seconds");
 const audioOnEl = document.querySelector(".fas.fa-volume-up");
 const audioOffEl = document.querySelector(".fas.fa-volume-mute");
+const titleEl = document.querySelector("title");
 const timerToggleEl = document.getElementById("timer__toggle");
 
 const startingMinutes = 25;
@@ -43,6 +44,8 @@ function startTimer() {
     seconds = seconds < 10 ? "0" + seconds : seconds;
     minutes = minutes < 10 ? "0" + minutes : minutes;
 
+    document.title = "Pomodoro Timer - " + minutes + ":" + seconds;
+
     if (minutes === "00" && seconds === "00") {
         if (!backgroundMusic.muted) {
             ringBell();
@@ -65,6 +68,8 @@ function startTimer() {
 function main() {
     minutesEl.textContent = startingMinutes < 10 ? "0" + startingMinutes : startingMinutes;
     secondsEl.textContent = "00";
+
+    
 
     timerToggleEl.addEventListener("click", function () {
 
