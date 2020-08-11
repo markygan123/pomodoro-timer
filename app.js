@@ -69,8 +69,6 @@ function main() {
     minutesEl.textContent = startingMinutes < 10 ? "0" + startingMinutes : startingMinutes;
     secondsEl.textContent = "00";
 
-    
-
     timerToggleEl.addEventListener("click", function () {
 
         timerToggleEl.classList.toggle("running");
@@ -90,8 +88,8 @@ function main() {
 
     audioOffEl.addEventListener("click", function (e) {
         this.classList.toggle("play");
-        audioOnEl.classList.toggle("play");
         muteBackgroundMusic();
+        audioOnEl.classList.toggle("play");
     });
 
     audioOnEl.addEventListener("click", function (e) {
