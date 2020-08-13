@@ -42,7 +42,11 @@ function startTimer() {
 
     seconds = seconds < 10 ? "0" + seconds : seconds;
     minutes = minutes < 10 ? "0" + minutes : minutes;
-
+    
+    minutesEl.textContent = minutes;
+    secondsEl.textContent = seconds;
+    
+    countDownTime !== 0 ? countDownTime-- : countDownTime;
     document.title = "Pomodoro Timer - " + minutes + ":" + seconds;
 
     if (minutes === "00" && seconds === "00") {
@@ -58,10 +62,6 @@ function startTimer() {
         }
     }
 
-    minutesEl.textContent = minutes;
-    secondsEl.textContent = seconds;
-
-    countDownTime !== 0 ? countDownTime-- : countDownTime;
 }
 
 function main() {
