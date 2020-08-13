@@ -2,7 +2,6 @@ const minutesEl = document.querySelector(".timer__minutes");
 const secondsEl = document.querySelector(".timer__seconds");
 const audioOnEl = document.querySelector(".fas.fa-volume-up");
 const audioOffEl = document.querySelector(".fas.fa-volume-mute");
-const titleEl = document.querySelector("title");
 const timerToggleEl = document.getElementById("timer__toggle");
 
 const startingMinutes = 25;
