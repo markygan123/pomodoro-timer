@@ -104,3 +104,14 @@ main {
     background-color: #dedede;
     color: #ff3030;
 }
+
+.credits {
+    position: absolute;
+    bottom: 20px;
+    color: #ffffff;
+}
+
+.credits > p > a {
+    color: #ffffff;
+    text-decoration: none;
+}
