@@ -109,9 +109,10 @@ main {
     position: absolute;
     bottom: 20px;
     color: #ffffff;
+    font-style: italic;
 }
 
-.credits > p > a {
+.credits a {
     color: #ffffff;
     text-decoration: none;
 }
