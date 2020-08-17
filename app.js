@@ -42,10 +42,10 @@ function startTimer() {
 
     seconds = seconds < 10 ? "0" + seconds : seconds;
     minutes = minutes < 10 ? "0" + minutes : minutes;
-    
+
     minutesEl.textContent = minutes;
     secondsEl.textContent = seconds;
-    
+
     countDownTime !== 0 ? countDownTime-- : countDownTime;
     document.title = "Pomodoro Timer - " + minutes + ":" + seconds;
 
@@ -64,26 +64,28 @@ function startTimer() {
 
 }
 
+function timerClicked() {
+    timerToggleEl.classList.toggle("running");
+    if (timer !== null) {
+        clearInterval(timer);
+        pauseBackgroundMusic();
+        timer = null;
+    } else {
+        timer = setInterval(startTimer, 1000);
+        playBackgroundMusic();
+    }
+
+    timerToggleEl.innerHTML === "start" ?
+    timerToggleEl.innerHTML = "stop":
+    timerToggleEl.innerHTML = "start";
+
+}
+
 function main() {
     minutesEl.textContent = startingMinutes < 10 ? "0" + startingMinutes : startingMinutes;
     secondsEl.textContent = "00";
 
-    timerToggleEl.addEventListener("click", function () {
-
-        timerToggleEl.classList.toggle("running");
-        if (timer !== null) {
-            clearInterval(timer);
-            pauseBackgroundMusic();
-            timer = null;
-        } else {
-            timer = setInterval(startTimer, 1000);
-            playBackgroundMusic();
-        }
-
-        timerToggleEl.innerHTML === "start" ?
-        timerToggleEl.innerHTML = "stop":
-        timerToggleEl.innerHTML = "start";
-    });
+    timerToggleEl.addEventListener("click", timerClicked);
 
     audioOffEl.addEventListener("click", function (e) {
         this.classList.toggle("play");
