@@ -7,8 +7,8 @@ const timerToggleEl = document.getElementById("timer__toggle");
 const startingMinutes = 25;
 let countDownTime = startingMinutes * 60;
 let timer = null;
-let timeOverSound = new Audio("audio/bell.mp3");
-let backgroundMusic = new Audio("audio/background-music.mp3");
+const timeOverSound = new Audio("audio/bell.mp3");
+const backgroundMusic = new Audio("audio/background-music.mp3");
 
 
 
