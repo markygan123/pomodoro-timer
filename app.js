@@ -5,38 +5,38 @@ const audioOffEl = document.querySelector(".fas.fa-volume-mute");
 const timerToggleEl = document.getElementById("timer__toggle");
 
 const startingMinutes = 25;
-let countDownTime = startingMinutes * 60;
-let timer = null;
 const timeOverSound = new Audio("audio/bell.mp3");
 const backgroundMusic = new Audio("audio/background-music.mp3");
+let countDownTime = startingMinutes * 60;
+let timer = null;
 
 
 
-function ringBell() {
+const ringBell = () => {
     pauseBackgroundMusic();
     timeOverSound.play();
 }
 
-function playBackgroundMusic() {
+const playBackgroundMusic = () => {
     backgroundMusic.play();
     backgroundMusic.loop = true;
 }
 
-function pauseBackgroundMusic() {
+const pauseBackgroundMusic = () => {
     backgroundMusic.pause();
 }
 
-function muteBackgroundMusic() {
+const muteBackgroundMusic = () => {
     backgroundMusic.muted = true;
     timeOverSound.muted = true;
 }
 
-function unmuteBackgroundMusic() {
+const unmuteBackgroundMusic = () => {
     backgroundMusic.muted = false;
     timeOverSound.muted = false;
 }
 
-function startTimer() {
+const startTimer = () => {
     let minutes = Math.floor(countDownTime / 60);
     let seconds = countDownTime % 60;
 
@@ -64,7 +64,7 @@ function startTimer() {
 
 }
 
-function timerClicked() {
+const timerClicked = () => {
     timerToggleEl.classList.toggle("running");
     if (timer !== null) {
         clearInterval(timer);
@@ -81,7 +81,7 @@ function timerClicked() {
 
 }
 
-function main() {
+const main = () => {
     minutesEl.textContent = startingMinutes < 10 ? "0" + startingMinutes : startingMinutes;
     secondsEl.textContent = "00";
 
